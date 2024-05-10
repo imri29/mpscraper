@@ -5,14 +5,19 @@
   "description": "my protein discount alerts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && node fix-imports.js",
+    "start": "npm run build && node dist/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "nodemailer": "^6.9.13",
     "prettier": "^3.2.5",
-    "puppeteer": "^22.8.0",
+    "puppeteer": "^22.8.0"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.15",
     "typescript": "^5.4.5"
   }
 }
