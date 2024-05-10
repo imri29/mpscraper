@@ -1,0 +1,18 @@
+{
+  "name": "mpscraper",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "my protein discount alerts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.9.13",
+    "prettier": "^3.2.5",
+    "puppeteer": "^22.8.0",
+    "typescript": "^5.4.5"
+  }
+}
