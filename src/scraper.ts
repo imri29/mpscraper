@@ -5,7 +5,7 @@ export default async function scrapeDiscounts(url: string, desiredDiscount: stri
   const browser = await puppeteer.launch({
     headless: true,
     args: ["--no-sandbox"],
-    timeout: 10000,
+    timeout: 20000,
   });
   const page = await browser.newPage();
   await page.goto(url);
