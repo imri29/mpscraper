@@ -2,7 +2,11 @@ import puppeteer from "puppeteer";
 import { sendEmail } from "./mailer";
 
 export default async function scrapeDiscounts(url: string, desiredDiscount: string) {
-  const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox"],
+    timeout: 10000,
+  });
   const page = await browser.newPage();
   await page.goto(url);
 
