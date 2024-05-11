@@ -1,0 +1,13 @@
+name: Weekly Run
+
+on:
+  schedule:
+    # Runs at 00:00 every Monday
+    - cron: '0 0 * * 1'
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl Request
+        run: curl -s https://mpscraper-imri29s-projects.vercel.app/
