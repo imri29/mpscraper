@@ -12,7 +12,6 @@ export default async function scrapeDiscounts(url: string, desiredDiscount: stri
 
   const discount = await page.evaluate(() => {
     const banner = document.querySelector(".stripBanner");
-    console.log(banner, banner?.textContent);
     return banner?.textContent?.trim().split(" ")[0].split("%")[0] ?? "0";
   });
 
