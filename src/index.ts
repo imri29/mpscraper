@@ -14,8 +14,8 @@ app.get("/discount", async (req, res) => {
     const discount = await scraper("https://www.myprotein.co.il/", "40");
     console.log({ discount });
     res.json({ discount });
-  } catch (error) {
-    console.error("Error occurred:", error.message);
+  } catch (error: any) {
+    console.error("Error occurred:", error.message!);
     console.error(error.stack);
     res.status(500).json({ error: "Failed to fetch discount", details: error.message });
   }
