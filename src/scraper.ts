@@ -8,15 +8,15 @@ export default async function scrapeDiscounts(url: string, desiredDiscount: stri
 
   const discount = await page.evaluate(() => {
     const banner = document.querySelector(".stripBanner");
+    console.log(banner, banner?.textContent);
     return banner?.textContent?.trim().split(" ")[0].split("%")[0] ?? "0";
   });
 
   if (discount >= desiredDiscount) {
-    console.log(discount, desiredDiscount);
-    await sendEmail(discount)
-
+    await sendEmail(discount);
   }
 
   await browser.close();
-  return discount
+
+  return discount;
 }
