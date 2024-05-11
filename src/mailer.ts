@@ -4,8 +4,6 @@ const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
 
 export async function sendEmail(discount: string) {
-  console.log({ email, password, env: process.env });
-
   const transporter = nodeMailer.createTransport({
     service: "gmail",
     auth: {
@@ -18,7 +16,7 @@ export async function sendEmail(discount: string) {
     from: "Discount Finder",
     to: email,
     subject: "New MyProtein discount!",
-    text: `The current MyProtein discount is ${discount}. Go check it out at https://www.myprotein.co.il/.`,
+    text: `The current MyProtein discount is ${discount}%. Go check it out at https://www.myprotein.co.il/.`,
   });
 
   console.log("Message sent: %s", info.messageId);
