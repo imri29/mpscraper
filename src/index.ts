@@ -3,7 +3,7 @@ import express from 'express';
 import scraper from './scraper.js';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Serve HTML files from the 'public' directory
 app.use(express.static('public'));
@@ -19,6 +19,6 @@ app.get('/discount', async (req, res) => {
   }
 });
 
-app.listen(port, '0.0.0.0', () => {
+app.listen(Number(port), '0.0.0.0', () => {
   console.log(`Server running on 0.0.0.0:${port}`);
 });
