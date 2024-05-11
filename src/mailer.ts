@@ -14,7 +14,7 @@ export async function sendEmail(discount: string ) {
   });
 
   let info = await transporter.sendMail({
-    from: 'Discount Finder', // sender address
+    from: 'Discount Finder',
     to: email,
     subject: "New MyProtein discount!",
     text: `The current MyProtein discount is ${discount}. Go check it out at https://www.myprotein.co.il/.`,
