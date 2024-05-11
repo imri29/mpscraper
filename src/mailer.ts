@@ -1,11 +1,12 @@
 import nodeMailer from "nodemailer";
 
-const email = process.env.EMAIL
-const password = process.env.PASSWORD
+const email = process.env.EMAIL;
+const password = process.env.PASSWORD;
 
+export async function sendEmail(discount: string) {
+  console.log({ email, password, env: process.env });
 
-export async function sendEmail(discount: string ) {
-  let transporter = nodeMailer.createTransport({
+  const transporter = nodeMailer.createTransport({
     service: "gmail",
     auth: {
       user: email,
@@ -13,12 +14,11 @@ export async function sendEmail(discount: string ) {
     },
   });
 
-  let info = await transporter.sendMail({
-    from: 'Discount Finder',
+  const info = await transporter.sendMail({
+    from: "Discount Finder",
     to: email,
     subject: "New MyProtein discount!",
     text: `The current MyProtein discount is ${discount}. Go check it out at https://www.myprotein.co.il/.`,
-
   });
 
   console.log("Message sent: %s", info.messageId);
