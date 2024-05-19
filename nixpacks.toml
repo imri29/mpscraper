@@ -1,8 +1,0 @@
-[phases.install]
-run = "npm install --omit=dev"
-
-[phases.build]
-run = "npm run build"
-
-[phases.start]
-run = "npm start"
