@@ -11,6 +11,7 @@ app.use(express.static("public"));
 // API endpoint to fetch discount
 app.get("/discount", async (req, res) => {
   try {
+    console.log("Endpoint hit");
     const discount = await scraper("https://www.myprotein.co.il/", "40");
     console.log({ discount });
     res.json({ discount });

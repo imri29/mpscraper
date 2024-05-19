@@ -16,7 +16,7 @@
     "express": "^4.19.2",
     "nodemailer": "^6.9.13",
     "prettier": "^3.2.5",
-    "puppeteer": "^22.8.0"
+    "puppeteer": "^22.9.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

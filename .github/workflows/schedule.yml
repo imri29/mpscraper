@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Curl Request
-        run: curl -s https://mpscraper-imri29s-projects.vercel.app/
+        run: curl -s https://mpscraper-production.up.railway.app/
