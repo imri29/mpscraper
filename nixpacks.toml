@@ -1,8 +1,8 @@
-[phases.setup]
+[phases.install]
 run = "npm install --omit=dev"
 
 [phases.build]
-run = "npm run build"  # Only include if you have a build step
+run = "npm run build"
 
 [phases.start]
 run = "npm start"
