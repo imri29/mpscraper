@@ -5,14 +5,13 @@ import scraper from "./scraper.js";
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Serve HTML files from the 'public' directory
 app.use(express.static("public"));
 
 // API endpoint to fetch discount
 app.get("/discount", async (req, res) => {
   try {
     console.log("Endpoint hit");
-    const discount = await scraper("https://www.myprotein.co.il/", "40");
+    const discount = await scraper("40");
     console.log({ discount });
     res.json({ discount });
   } catch (error: any) {
