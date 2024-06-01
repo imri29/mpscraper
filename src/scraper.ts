@@ -1,25 +1,24 @@
-import puppeteer from "puppeteer";
+import { parseHTML } from "linkedom";
 import { sendEmail } from "./mailer";
 
-export default async function scrapeDiscounts(url: string, desiredDiscount: string) {
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ["--no-sandbox"],
-    timeout: 10000,
-  });
-  const page = await browser.newPage();
-  await page.goto(url);
+const MYPROTEIN_URL = "https://www.myprotein.co.il/";
 
-  const discount = await page.evaluate(() => {
+export default async function scrapeDiscounts(desiredDiscount: string) {
+  try {
+    const html = await fetch(MYPROTEIN_URL).then((res) => res.text());
+    const { document } = parseHTML(html);
     const banner = document.querySelector(".stripBanner");
-    return banner?.textContent?.trim().split(" ")[0].split("%")[0] ?? "0";
-  });
+    const discount = banner?.textContent?.trim().split(" ")[0].split("%")[0] ?? "0";
 
-  if (discount >= desiredDiscount) {
-    await sendEmail(discount);
+    if (discount >= desiredDiscount) {
+      await sendEmail(discount);
+    }
+
+    return discount;
+  } catch (error) {
+    console.error(error);
+    if (error instanceof Error) {
+      return error.message;
+    }
   }
-
-  await browser.close();
-
-  return discount;
 }
