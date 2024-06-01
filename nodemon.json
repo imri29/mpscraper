@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "public"],
+  "ignore": ["build"],
+  "ext": "js,ts,html,css",
+  "exec": "npm run build && npm run start"
+}
