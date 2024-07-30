@@ -2,15 +2,18 @@ import { parseHTML } from "linkedom";
 import { sendEmail } from "./mailer";
 
 const MYPROTEIN_URL = "https://www.myprotein.co.il/";
+const percentGroupRegex = /(\d+)%/;
 
 export default async function scrapeDiscounts(desiredDiscount: string) {
   try {
     const html = await fetch(MYPROTEIN_URL).then((res) => res.text());
     const { document } = parseHTML(html);
     const banner = document.querySelector(".stripBanner");
-    const discount = banner?.textContent?.trim().split(" ")[0].split("%")[0] ?? "0";
+    const textContainingDiscount = banner?.textContent?.trim();
+    const match = textContainingDiscount?.match(percentGroupRegex);
+    const [_, discount] = match ?? [];
 
-    if (discount >= desiredDiscount) {
+    if (discount && discount >= desiredDiscount) {
       await sendEmail(discount);
     }
 

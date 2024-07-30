@@ -3,7 +3,7 @@ name: Weekly Run
 on:
   schedule:
     # Runs at 00:00 every Monday
-    - cron: '0 0 * * 1'
+    - cron: "0 0 * * 1"
 
 jobs:
   trigger:
