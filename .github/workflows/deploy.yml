@@ -28,5 +28,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages  # Ensure that this is set to `gh-pages`
           publish_dir: ./dist  # The directory where your build output is located
+          publish_branch: gh-pages  # Ensure that this is set to `gh-pages`
