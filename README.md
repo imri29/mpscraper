@@ -1,3 +1,3 @@
 # mpscraper
 
-my protein discount alerts
+MyProtein discount alerts

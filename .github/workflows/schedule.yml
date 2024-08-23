@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Curl Request
-        run: curl -sS https://mpscraper-production.up.railway.app/discount
+        run: curl -sS https://imri29.github.io/mpscraper/discount
