@@ -21,6 +21,6 @@ app.get("/discount", async (req, res) => {
   }
 });
 
-app.listen(Number(port), "0.0.0.0", () => {
-  console.log(`Server running on 0.0.0.0:${port}`);
+app.listen(Number(port), () => {
+  console.log(`Server running on port:${port}`);
 });
